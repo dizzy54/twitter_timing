@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from users.views import twitter_login, twitter_logout, twitter_authenticated
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^timing/', include('timing.urls')),
+    url(r'^login/?$', twitter_login),
+    url(r'^logout/?$', twitter_logout),
+    url(r'^login/authenticated/?$', twitter_authenticated),
 ]
